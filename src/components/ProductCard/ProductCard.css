@@ -1,0 +1,215 @@
+/* ProductCard.css */
+
+.product-card {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.product-card--out-of-stock {
+  opacity: 0.75;
+}
+
+/* ── Image ── */
+.product-card__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+
+/* ── Badges ── */
+.product-card__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.product-card__badge--sale {
+  background-color: var(--badge-sale);
+}
+
+.product-card__badge--new {
+  background-color: var(--color-success);
+}
+
+.product-card__badge--best-seller {
+  background-color: var(--color-primary);
+}
+
+/* ── Out of Stock Overlay ── */
+.product-card__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card__overlay span {
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+}
+
+/* ── Info ── */
+.product-card__info {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.product-card__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card__desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Stars ── */
+.star-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 0.75rem;
+}
+
+.star--filled,
+.star--half {
+  color: #F5A623;
+}
+
+.star--empty {
+  color: var(--border-color);
+}
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.product-card__reviews {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ── Price ── */
+.product-card__price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.product-card__price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-price);
+}
+
+.product-card__original-price {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.product-card__discount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-success);
+  background-color: #e8f5ee;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* ── Button ── */
+.product-card__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem;
+  margin-top: 0.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-card__btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+/* Already in cart state — green button */
+.product-card__btn--in-cart {
+  background-color: var(--color-success);
+}
+
+.product-card__btn--in-cart:hover:not(:disabled) {
+  background-color: #3d6b4a;
+}
+
+.product-card__btn:disabled {
+  background-color: var(--text-muted);
+  cursor: not-allowed;
+}

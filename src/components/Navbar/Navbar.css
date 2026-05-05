@@ -1,0 +1,262 @@
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  background-color: var(--color-primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Logo ── */
+.navbar__logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: 0.5px;
+  flex-shrink: 1; /* Allow to shrink if needed */
+  min-width: 0;
+}
+
+/* ── Center Nav Links ── */
+.navbar__links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar__links a {
+  color: var(--text-white);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.navbar__links a:hover,
+.navbar__links a.active {
+  border-bottom-color: var(--text-white);
+}
+
+/* ── Right Side Wrapper (holds actions + cart + hamburger) ── */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ── Login / Signup Buttons Group ── */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ── Cart Button ── */
+.navbar__cart-btn {
+  position: relative;
+  color: var(--text-white);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--badge-sale);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Shared Button Styles ── */
+.navbar__btn {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border: 2px solid var(--text-white);
+}
+
+.navbar__btn--outline {
+  background-color: transparent;
+  color: var(--text-white);
+}
+
+.navbar__btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.navbar__btn--filled {
+  background-color: var(--text-white);
+  color: var(--color-primary);
+}
+
+.navbar__btn--filled:hover {
+  background-color: #f0ede4;
+}
+
+/* ── Hamburger (hidden on desktop) ── */
+.navbar__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+/* ── Logo Image ── */
+.navbar__logo-img {
+  height: 60px; /* Increased for better visibility, fits within 64px navbar */
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  /* No mix-blend-mode needed — logo already has transparent background ✅ */
+}
+
+/* ─────────────────────────────
+   MOBILE — max-width: 768px
+───────────────────────────── */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  /* Show hamburger on mobile */
+  .navbar__hamburger {
+    display: block;
+  }
+
+  /* Hide Login/Signup on mobile */
+  .navbar__actions {
+    display: none;
+  }
+
+  /* Dropdown menu */
+  .navbar__links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-primary-hover);
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .navbar__links--open {
+    display: flex;
+  }
+
+  .navbar__links a {
+    padding: 0.75rem 2rem;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar__links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Remove desktop underline on active link in mobile menu */
+  .navbar__links a.active {
+    border-bottom-color: transparent;
+  }
+}
+@media (max-width: 768px) {
+  .navbar__logo-img {
+    height: 52px; /* Increased for better mobile visibility */
+  }
+}
+
+/* ── User Info (logged in state) ── */
+.navbar__user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-white);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar__user:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.navbar__user-icon {
+  font-size: 1.4rem;
+}
+
+.navbar__user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ── Dropdown ── */
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 200px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+}
+
+.navbar__dropdown-email {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  word-break: break-all;
+}
+
+.navbar__dropdown-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: 1px solid var(--color-error);
+  border-radius: 8px;
+  color: var(--color-error);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.navbar__dropdown-logout:hover {
+  background-color: #fdecea;
+}

@@ -1,0 +1,178 @@
+/* Auth pages shared styles (Login + Signup) */
+
+/* ── Page Wrapper — centers the card ── */
+.auth-page {
+  min-height: calc(100vh - 64px);  /* Full height minus navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--bg-main);
+}
+
+/* ── Card ── */
+.auth-card {
+  background-color: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Header ── */
+.auth-card__header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.auth-card__title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 0.4rem;
+}
+
+.auth-card__subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ── Error Box ── */
+.auth-error {
+  background-color: #fdecea;
+  color: var(--color-error);
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* ── Form ── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Field ── */
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.auth-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+/* ── Input Wrapper (icon + input + toggle) ── */
+.auth-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Left icon */
+.auth-input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  pointer-events: none;   /* Icon doesn't block clicks */
+}
+
+/* Input field */
+.auth-input {
+  width: 100%;
+  padding: 0.7rem 2.75rem; /* Space for icon left and toggle right */
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--bg-input);
+  font-size: 0.9rem;
+  color: var(--text-body);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15); /* Orange glow */
+}
+
+/* Show/hide password toggle button */
+.auth-input-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.auth-input-toggle:hover {
+  color: var(--color-primary);
+}
+
+/* ── Submit Button ── */
+.auth-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 0.5rem;
+}
+
+.auth-btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.auth-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.auth-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ── Footer Link ── */
+.auth-card__footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.auth-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 1.75rem 1.25rem;
+  }
+}

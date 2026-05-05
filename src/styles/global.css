@@ -1,0 +1,72 @@
+/* global.css — Our design system */
+/* CSS variables let us reuse colors everywhere. Change one value here = updates everywhere */
+
+:root {
+  /* Backgrounds */
+  --bg-main: #F5F4EF;
+  --bg-card: #FFFFFF;
+  --bg-input: #ECEAE3;
+  --bg-footer: #1A1917;
+
+  /* Brand / Primary */
+  --color-primary: #F97316;
+  --color-primary-hover: #EA6C0A;
+
+  /* Text */
+  --text-heading: #1A1917;
+  --text-body: #4A4845;
+  --text-muted: #9A9890;
+  --text-white: #FFFFFF;
+  --text-footer-heading: #FFFFFF;
+  --text-footer-body: #9A9890;
+
+  /* Borders */
+  --border-color: #E0DED7;
+
+  /* Status */
+  --color-success: #4A7C59;
+  --color-error: #B85450;
+
+  /* Badges */
+  --badge-sale: #FF4500;
+
+  /* Price */
+  --color-price: #F97316;
+
+  /* Typography */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Box sizing reset — makes layout math predictable */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body styles */
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* Remove default list styles */
+ul {
+  list-style: none;
+}
+
+/* Remove default link underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make images responsive by default */
+img {
+  max-width: 100%;
+  display: block;
+}
